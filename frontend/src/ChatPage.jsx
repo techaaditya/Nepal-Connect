@@ -406,27 +406,55 @@ CRITICAL: Each question MUST be on its own line with a line break after each num
       }
       const fullPrompt = `${systemPrompt}\n\n**FORMATTING: Use proper markdown formatting with headers, lists, and emphasis. NO EMOJIS. Format responses clearly with:\n- Headers (##) for main sections\n- Bullet points (-) for lists\n- Bold text (**text**) for emphasis\n- Line breaks for readability\n\nWhen asking questions, format like this (each question on its own line with minimal spacing):\n\n1. First question?\n2. Second question?\n3. Third question?\n\nUse minimal gaps between questions - each numbered item should be on its own line with a single line break between them.**`;
 
-      // Call backend chat API (proxied via setupProxy to http://localhost:5000)
-      const devKey = process.env.REACT_APP_GEMINI_API_KEY; // Optional: user can set for local dev
-      const headers = { 'Content-Type': 'application/json' };
-      if (devKey) headers['x-gemini-api-key'] = devKey; // Sent to backend; avoid in production
+      let text = '';
 
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers,
-        body: JSON.stringify({
-          systemPrompt: fullPrompt,
-          messages: currentMessages,
-          model: 'gemini-2.5-pro',
-          maxTokens: 4000
-        }),
-      });
+      // Try backend first, fall back to direct Gemini API if backend is unavailable
+      try {
+        const devKey = process.env.REACT_APP_GEMINI_API_KEY;
+        const headers = { 'Content-Type': 'application/json' };
+        if (devKey) headers['x-gemini-api-key'] = devKey;
 
-      if (!res.ok) {
-        throw new Error(`Chat API failed with status ${res.status}`);
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            systemPrompt: fullPrompt,
+            messages: currentMessages,
+            model: 'gemini-2.5-pro',
+            maxTokens: 4000
+          }),
+        });
+
+        if (!res.ok) {
+          throw new Error(`Backend not available (${res.status})`);
+        }
+        const data = await res.json();
+        text = data.text || '';
+      } catch (backendError) {
+        console.log('Backend unavailable, using direct Gemini API:', backendError.message);
+        
+        // Fall back to direct Gemini API call
+        const { GoogleGenerativeAI } = await import('@google/generative-ai');
+        const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyDgu0vrn0JvwFqHmZj2lGEDGt1HhMcnumI';
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
+
+        const chatHistory = currentMessages.slice(0, -1).map(msg => ({
+          role: msg.role === 'assistant' ? 'model' : 'user',
+          parts: [{ text: msg.content }]
+        }));
+
+        const chat = model.startChat({
+          history: chatHistory,
+          generationConfig: {
+            maxOutputTokens: 4000,
+          },
+        });
+
+        const lastUserMessage = currentMessages[currentMessages.length - 1].content;
+        const result = await chat.sendMessage(fullPrompt + '\n\nUser: ' + lastUserMessage);
+        text = result.response.text();
       }
-      const data = await res.json();
-      let text = data.text || '';
       
       // Check if AI is creating a trip plan by detecting planning keywords in its response
   const isPlanningResponse = /^(Perfect!|Great!|Awesome!|Excellent!)\s*(Let me create|I'm planning|Creating|Let me design|I'll create|I'll plan)/i.test(text);
@@ -502,7 +530,7 @@ CRITICAL: Each question MUST be on its own line with a line break after each num
         
         setShowRecommendationCard(true);
         
-        // Call the new real-time analysis API
+        // Call the new real-time analysis API (backend may not be available on GitHub Pages)
         try {
           console.log('Calling API with conversation history:', currentMessages);
           const response = await fetch('/api/plan-trip', {
@@ -535,16 +563,15 @@ CRITICAL: Each question MUST be on its own line with a line break after each num
               });
             }, 3000);
           } else {
-            const errorText = await response.text();
-            console.error('Failed to generate real-time recommendations:', response.status, errorText);
-            // Fallback to original flow
+            console.log('Backend not available, proceeding without real-time data');
+            // Fallback to original flow without backend
             setTimeout(() => {
               navigate('/booking', { state: { tripPlan: text } });
             }, 2000);
           }
         } catch (error) {
-          console.error('Error calling real-time analysis API:', error);
-          // Fallback to original flow
+          console.log('Backend unavailable (expected on GitHub Pages), proceeding without real-time data');
+          // Fallback to original flow - this is normal for static deployments
           setTimeout(() => {
               navigate('/booking', { state: { tripPlan: tripPlan || text } });
           }, 2000);
