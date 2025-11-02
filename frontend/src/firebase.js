@@ -7,14 +7,25 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyD76_M3_zwFL0YjElwgLOXu7eyGt7uhHdw",
+//   authDomain: "hackathon-5981c.firebaseapp.com",
+//   projectId: "hackathon-5981c",
+//   storageBucket: "hackathon-5981c.firebasestorage.app",
+//   messagingSenderId: "474275463259",
+//   appId: "1:474275463259:web:fa16300191a6d843e07f7e",
+//   measurementId: "G-Y5PD2EB67L"
+// };
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyD76_M3_zwFL0YjElwgLOXu7eyGt7uhHdw",
-  authDomain: "hackathon-5981c.firebaseapp.com",
-  projectId: "hackathon-5981c",
-  storageBucket: "hackathon-5981c.firebasestorage.app",
-  messagingSenderId: "474275463259",
-  appId: "1:474275463259:web:fa16300191a6d843e07f7e",
-  measurementId: "G-Y5PD2EB67L"
+  apiKey: "AIzaSyCJqlC2ybH5cy5Kzi8zeJhyrQVShkuK3jc",
+  authDomain: "nepal-connect.firebaseapp.com",
+  projectId: "nepal-connect",
+  storageBucket: "nepal-connect.firebasestorage.app",
+  messagingSenderId: "212126586027",
+  appId: "1:212126586027:web:2cd9ff88e0dc5f440753ee",
+  measurementId: "G-YFSM5L0MYP"
 };
 
 // Initialize Firebase
