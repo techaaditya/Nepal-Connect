@@ -10,10 +10,18 @@
     "start-backend": "cd backend && npm start",
     "start-frontend": "cd frontend && npm start"
   },
-  "keywords": ["fullstack", "react", "nodejs", "express"],
+  "keywords": [
+    "fullstack",
+    "react",
+    "nodejs",
+    "express"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.1"
+  },
+  "dependencies": {
+    "cloudinary": "^2.8.0"
   }
 }

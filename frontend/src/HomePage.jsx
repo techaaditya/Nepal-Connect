@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import ThreeDImageRing from './components/ThreeDvideoRing';
+import { VIDEOS } from './config/mediaUrls';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -62,20 +63,20 @@ function HomePage() {
 
   // Video files for the 3D carousel
   const videoFiles = [
-    '/assets/vid2 (1).mp4',
-    '/assets/vid4.mp4',
-    '/assets/vid5.mp4',
-    '/assets/vid6.mp4',
-    '/assets/vid7.mp4',
-    '/assets/vid9.mp4',
-    '/assets/vid10.mp4',
-    '/assets/vid11.mp4',
-    '/assets/vid1.mp4',
-    '/assets/Untitled video - Made with Clipchamp (1).mp4',
-    '/assets/Untitled video - Made with Clipchamp (4).mp4',
-    '/assets/Untitled video - Made with Clipchamp (6).mp4',
-    '/assets/Untitled video - Made with Clipchamp (7).mp4',
-    '/assets/Untitled video - Made with Clipchamp.mp4',
+    VIDEOS.vid2,
+    VIDEOS.vid4,
+    VIDEOS.vid5,
+    VIDEOS.vid6,
+    VIDEOS.vid7,
+    VIDEOS.vid9,
+    VIDEOS.vid10,
+    VIDEOS.vid11,
+    VIDEOS.vid1,
+    VIDEOS.clipchamp1,
+    VIDEOS.clipchamp4,
+    VIDEOS.clipchamp6,
+    VIDEOS.clipchamp7,
+    VIDEOS.clipchamp
   ];
 
   return (

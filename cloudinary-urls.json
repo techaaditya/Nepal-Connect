@@ -1,0 +1,151 @@
+{
+  "videos": [
+    {
+      "original": "vid1.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104171/nepal-connect/vid1.mp4",
+      "publicId": "nepal-connect/vid1"
+    },
+    {
+      "original": "vid2 (1).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104184/nepal-connect/vid2_1.mp4",
+      "publicId": "nepal-connect/vid2_1"
+    },
+    {
+      "original": "vid4.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104198/nepal-connect/vid4.mp4",
+      "publicId": "nepal-connect/vid4"
+    },
+    {
+      "original": "vid5.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104209/nepal-connect/vid5.mp4",
+      "publicId": "nepal-connect/vid5"
+    },
+    {
+      "original": "vid6.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104224/nepal-connect/vid6.mp4",
+      "publicId": "nepal-connect/vid6"
+    },
+    {
+      "original": "vid7.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104235/nepal-connect/vid7.mp4",
+      "publicId": "nepal-connect/vid7"
+    },
+    {
+      "original": "vid9.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104250/nepal-connect/vid9.mp4",
+      "publicId": "nepal-connect/vid9"
+    },
+    {
+      "original": "vid10.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104267/nepal-connect/vid10.mp4",
+      "publicId": "nepal-connect/vid10"
+    },
+    {
+      "original": "vid11.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104285/nepal-connect/vid11.mp4",
+      "publicId": "nepal-connect/vid11"
+    },
+    {
+      "original": "Untitled video - Made with Clipchamp (1).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104295/nepal-connect/Untitled_video_-_Made_with_Clipchamp_1.mp4",
+      "publicId": "nepal-connect/Untitled_video_-_Made_with_Clipchamp_1"
+    },
+    {
+      "original": "Untitled video - Made with Clipchamp (4).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104311/nepal-connect/Untitled_video_-_Made_with_Clipchamp_4.mp4",
+      "publicId": "nepal-connect/Untitled_video_-_Made_with_Clipchamp_4"
+    },
+    {
+      "original": "Untitled video - Made with Clipchamp (6).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104319/nepal-connect/Untitled_video_-_Made_with_Clipchamp_6.mp4",
+      "publicId": "nepal-connect/Untitled_video_-_Made_with_Clipchamp_6"
+    },
+    {
+      "original": "Untitled video - Made with Clipchamp (7).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104330/nepal-connect/Untitled_video_-_Made_with_Clipchamp_7.mp4",
+      "publicId": "nepal-connect/Untitled_video_-_Made_with_Clipchamp_7"
+    },
+    {
+      "original": "Untitled video - Made with Clipchamp.mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104342/nepal-connect/Untitled_video_-_Made_with_Clipchamp.mp4",
+      "publicId": "nepal-connect/Untitled_video_-_Made_with_Clipchamp"
+    },
+    {
+      "original": "ef4046d2-c52a-4d00-b38a-b77cc85ad049 (1).mp4",
+      "url": "https://res.cloudinary.com/dn57ggyau/video/upload/v1762104345/nepal-connect/ef4046d2-c52a-4d00-b38a-b77cc85ad049_1.mp4",
+      "publicId": "nepal-connect/ef4046d2-c52a-4d00-b38a-b77cc85ad049_1"
+    }
+  ],
+  "images": [
+    {
+      "original": "card-annapurna.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104349/nepal-connect/card-annapurna.jpg",
+      "publicId": "nepal-connect/card-annapurna"
+    },
+    {
+      "original": "card-bhaktapur.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104354/nepal-connect/card-bhaktapur.jpg",
+      "publicId": "nepal-connect/card-bhaktapur"
+    },
+    {
+      "original": "card-chitwan.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104358/nepal-connect/card-chitwan.jpg",
+      "publicId": "nepal-connect/card-chitwan"
+    },
+    {
+      "original": "card-everest.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104362/nepal-connect/card-everest.jpg",
+      "publicId": "nepal-connect/card-everest"
+    },
+    {
+      "original": "card-kathmandu.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104366/nepal-connect/card-kathmandu.jpg",
+      "publicId": "nepal-connect/card-kathmandu"
+    },
+    {
+      "original": "card-langtang.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104370/nepal-connect/card-langtang.jpg",
+      "publicId": "nepal-connect/card-langtang"
+    },
+    {
+      "original": "card-manaslu.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104375/nepal-connect/card-manaslu.jpg",
+      "publicId": "nepal-connect/card-manaslu"
+    },
+    {
+      "original": "card-mustang.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104380/nepal-connect/card-mustang.jpg",
+      "publicId": "nepal-connect/card-mustang"
+    },
+    {
+      "original": "card-pokhara.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104386/nepal-connect/card-pokhara.jpg",
+      "publicId": "nepal-connect/card-pokhara"
+    },
+    {
+      "original": "changu-narayan_temple01.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104390/nepal-connect/changu-narayan_temple01.jpg",
+      "publicId": "nepal-connect/changu-narayan_temple01"
+    },
+    {
+      "original": "Pashupatinath-Temple-Pooja.webp",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104392/nepal-connect/Pashupatinath-Temple-Pooja.jpg",
+      "publicId": "nepal-connect/Pashupatinath-Temple-Pooja"
+    },
+    {
+      "original": "Lumbini_-_Mayadevi_Temple_from_South,_Lumbini_(9244243566).jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104393/nepal-connect/Lumbini_-_Mayadevi_Temple_from_South_Lumbini_9244243566.jpg",
+      "publicId": "nepal-connect/Lumbini_-_Mayadevi_Temple_from_South_Lumbini_9244243566"
+    },
+    {
+      "original": "Ghodaghodi-lake-1290x540.jpg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104395/nepal-connect/Ghodaghodi-lake-1290x540.jpg",
+      "publicId": "nepal-connect/Ghodaghodi-lake-1290x540"
+    },
+    {
+      "original": "images (1) (1).jpeg",
+      "url": "https://res.cloudinary.com/dn57ggyau/image/upload/v1762104396/nepal-connect/images_1_1.jpg",
+      "publicId": "nepal-connect/images_1_1"
+    }
+  ]
+}

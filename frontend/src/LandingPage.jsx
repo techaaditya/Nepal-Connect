@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import AuthPage from './AuthPage';
+import { IMAGES } from './config/mediaUrls';
 
 const cards = [
   {
@@ -9,63 +10,63 @@ const cards = [
     tag: 'TREKKING ADVENTURE',
     title: 'EVEREST BASE CAMP',
     subtitle: 'Sagarmatha Region',
-    image: '/assets/card-everest.jpg',
+    image: IMAGES.cardEverest,
   },
   {
     id: 'kathmandu',
     tag: 'CULTURAL TOUR',
     title: 'KATHMANDU VALLEY',
     subtitle: 'Ancient Heritage',
-    image: '/assets/card-kathmandu.jpg',
+    image: IMAGES.cardKathmandu,
   },
   {
     id: 'annapurna',
     tag: 'MOUNTAIN TREK',
     title: 'ANNAPURNA CIRCUIT',
     subtitle: 'Mountain Kingdom',
-    image: '/assets/card-annapurna.jpg',
+    image: IMAGES.cardAnnapurna,
   },
   {
     id: 'chitwan',
     tag: 'WILDLIFE SAFARI',
     title: 'CHITWAN NATIONAL PARK',
     subtitle: 'Jungle Adventure',
-    image: '/assets/card-chitwan.jpg',
+    image: IMAGES.cardChitwan,
   },
   {
     id: 'pokhara',
     tag: 'LAKE CITY',
     title: 'POKHARA VALLEY',
     subtitle: 'Mountain Reflections',
-    image: '/assets/card-pokhara.jpg',
+    image: IMAGES.cardPokhara,
   },
   {
     id: 'langtang',
     tag: 'ALPINE ADVENTURE',
     title: 'LANGTANG VALLEY',
     subtitle: 'Sacred Mountains',
-    image: '/assets/card-langtang.jpg',
+    image: IMAGES.cardLangtang,
   },
   {
     id: 'manaslu',
     tag: 'HIGH ALTITUDE',
     title: 'MANASLU CIRCUIT',
     subtitle: 'Mountain of Spirits',
-    image: '/assets/card-manaslu.jpg',
+    image: IMAGES.cardManaslu,
   },
   {
     id: 'mustang',
     tag: 'DESERT TREK',
     title: 'UPPER MUSTANG',
     subtitle: 'Forbidden Kingdom',
-    image: '/assets/card-mustang.jpg',
+    image: IMAGES.cardMustang,
   },
   {
     id: 'bhaktapur',
     tag: 'CULTURAL FESTIVAL',
     title: 'BHAKTAPUR DURBAR',
     subtitle: 'Living Heritage',
-    image: '/assets/card-bhaktapur.jpg',
+    image: IMAGES.cardBhaktapur,
   },
 ];
 

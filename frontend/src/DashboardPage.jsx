@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './DashboardPageStyles.css';
+import { IMAGES } from './config/mediaUrls';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
@@ -147,7 +148,7 @@ const DashboardPage = () => {
       destination: 'Annapurna Circuit Trek', 
       date: 'Dec 15, 2024', 
       status: 'Confirmed', 
-      image: '/assets/card-annapurna.jpg',
+      image: IMAGES.cardAnnapurna,
       duration: '16 days',
       difficulty: 'Moderate'
     },
@@ -156,7 +157,7 @@ const DashboardPage = () => {
       destination: 'Langtang Valley Trek', 
       date: 'Jan 20, 2025', 
       status: 'Pending', 
-      image: '/assets/card-langtang.jpg',
+      image: IMAGES.cardLangtang,
       duration: '12 days',
       difficulty: 'Easy-Moderate'
     },
@@ -165,17 +166,17 @@ const DashboardPage = () => {
       destination: 'Gokyo Lakes Trek', 
       date: 'Mar 10, 2025', 
       status: 'Planning', 
-      image: '/assets/card-gokyo.jpg',
+      image: IMAGES.cardEverest,
       duration: '14 days',
       difficulty: 'Challenging'
     }
   ];
 
   const savedPlaces = [
-    { id: 1, name: 'Everest Base Camp', category: 'Trekking', image: '/assets/card-everest.jpg' },
-    { id: 2, name: 'Kathmandu Durbar Square', category: 'Cultural', image: '/assets/card-kathmandu.jpg' },
-    { id: 3, name: 'Pokhara Lake', category: 'Nature', image: '/assets/card-pokhara.jpg' },
-    { id: 4, name: 'Chitwan National Park', category: 'Wildlife', image: '/assets/card-chitwan.jpg' }
+    { id: 1, name: 'Everest Base Camp', category: 'Trekking', image: IMAGES.cardEverest },
+    { id: 2, name: 'Kathmandu Durbar Square', category: 'Cultural', image: IMAGES.cardKathmandu },
+    { id: 3, name: 'Pokhara Lake', category: 'Nature', image: IMAGES.cardPokhara },
+    { id: 4, name: 'Chitwan National Park', category: 'Wildlife', image: IMAGES.cardChitwan }
   ];
 
   return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './StoriesPageStyles.css';
+import { IMAGES } from './config/mediaUrls';
 
 const StoriesPage = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const StoriesPage = () => {
       title: 'Changu Narayan: Where Time Stands Still',
       author: 'Prakash Shrestha',
       timeAgo: '3 hours ago',
-      image: '/assets/changu-narayan_temple01.jpg',
+      image: IMAGES.changuNarayan,
       excerpt: 'Perched atop a hill in Bhaktapur, Changu Narayan Temple stands as Nepal\'s oldest Hindu temple, dating back to the 4th century. Walking through its ancient courtyards, you can feel the weight of centuries of devotion. The intricate wood carvings tell stories of gods and kings, while the stone inscriptions speak of a civilization that flourished when the world was young. Every morning, as the first rays of sun illuminate the pagoda-style architecture, pilgrims gather to witness a tradition that has remained unchanged for over 1,600 years...',
       category: 'Architecture',
       featured: true,
@@ -50,7 +51,7 @@ const StoriesPage = () => {
       title: 'Pashupatinath: The Sacred Flames of Eternity',
       author: 'Sita Paudel',
       timeAgo: '6 hours ago',
-      image: '/assets/Pashupatinath-Temple-Pooja.webp',
+      image: IMAGES.pashupatinath,
       excerpt: 'At the banks of the sacred Bagmati River, Pashupatinath Temple pulses with spiritual energy that transcends time. The evening aarti ceremony transforms the temple complex into a symphony of bells, chants, and flickering oil lamps. Devotees from across the subcontinent gather here, believing that Lord Shiva himself resides in this sacred space. The temple\'s golden roof gleams against the twilight sky as sadhus in saffron robes perform ancient rituals that connect the earthly realm with the divine...',
       category: 'Personal Journeys',
       featured: false,
@@ -62,7 +63,7 @@ const StoriesPage = () => {
       title: 'Lumbini: Birthplace of Enlightenment',
       author: 'Tenzin Norbu',
       timeAgo: '1 day ago',
-      image: '/assets/Lumbini_-_Mayadevi_Temple_from_South,_Lumbini_(9244243566).jpg',
+      image: IMAGES.lumbini,
       excerpt: 'In the serene gardens of Lumbini, where Queen Maya Devi gave birth to Prince Siddhartha, peace seems to emanate from the very earth. The Maya Devi Temple houses the exact spot where the Buddha was born over 2,500 years ago. Pilgrims from around the world come here not just to see, but to feel the profound tranquility that this sacred birthplace offers. The ancient Ashoka Pillar stands as a testament to the historical significance of this holy site, marking it as the fountain of Buddhist philosophy that would eventually spread across continents...',
       category: 'Architecture',
       featured: false,
@@ -74,7 +75,7 @@ const StoriesPage = () => {
       title: 'Ghodaghodi Lake: Nepal\'s Hidden Paradise',
       author: 'Binod Chaudhary',
       timeAgo: '2 days ago',
-      image: '/assets/Ghodaghodi-lake-1290x540.jpg',
+      image: IMAGES.ghodaghodi,
       excerpt: 'Nestled in the far-western region of Nepal, Ghodaghodi Lake remains one of the country\'s best-kept secrets. This pristine wetland ecosystem, surrounded by lush forests and rolling hills, is home to over 150 species of birds and countless aquatic life forms. Local Tharu communities have protected these waters for generations, understanding that this lake system is not just a source of livelihood, but a sacred trust passed down from their ancestors. As dawn breaks over the mirror-like surface, the lake reflects not just the sky, but the soul of rural Nepal...',
       category: 'Personal Journeys',
       featured: false,
@@ -86,7 +87,7 @@ const StoriesPage = () => {
       title: 'The Rhythms of Newari Music',
       author: 'Suman Maharjan',
       timeAgo: '3 days ago',
-      image: '/assets/card-bhaktapur.jpg',
+      image: IMAGES.cardBhaktapur,
       excerpt: 'In the ancient courtyards of Bhaktapur, traditional Newari music echoes through narrow alleys, carrying stories that span centuries. The dhimay drums and traditional instruments create melodies that have accompanied festivals, celebrations, and daily life for generations...',
       category: 'Music',
       featured: false,
@@ -98,7 +99,7 @@ const StoriesPage = () => {
       title: 'Flavors of the Himalayas: Gundruk and Tradition',
       author: 'Maya Gurung',
       timeAgo: '4 days ago',
-      image: '/assets/images (1) (1).jpeg',
+      image: IMAGES.generic,
       excerpt: 'High in the mountain villages, the art of fermenting leafy greens into gundruk represents more than just food preservation—it\'s a connection to ancestral wisdom and the harsh realities of mountain life...',
       category: 'Food & Cuisine',
       featured: false,

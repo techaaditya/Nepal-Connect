@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './AdCreatorPageStyles.css';
+import { VIDEOS } from './config/mediaUrls';
 
 const AdCreatorPage = () => {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ const AdCreatorPage = () => {
         title: `AI Generated Advertisement`,
         content: `Based on your prompt: "${prompt}", our AI has created this compelling video advertisement that captures your business essence and engages your target audience.`,
         images: selectedImages,
-        video: '/assets/ef4046d2-c52a-4d00-b38a-b77cc85ad049 (1).mp4',
+        video: VIDEOS.adVideo,
         prompt: prompt,
         createdAt: new Date().toLocaleString()
       };
