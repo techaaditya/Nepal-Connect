@@ -151,6 +151,61 @@ You need to run both servers simultaneously:
 - Write tests
 - Deploy to production
 
+## Security: Secrets, API keys, and remediation
+
+This repo previously contained hardcoded keys that triggered GitHub Secret Scanning. We've removed those and switched to environment variables. Please follow these steps to stay safe:
+
+1) Rotate and restrict any exposed keys immediately
+- Google Cloud → Create new keys for: Google Maps/Places and Gemini (or delete the leaked ones)
+- Add strict restrictions:
+   - Browser keys (Maps JS): HTTP referrers (your domains only)
+   - Server keys (Places/Gemini): IP allowlists or at minimum application restrictions
+
+2) Configure environment variables
+- Backend: see `backend/.env.example`
+- Frontend: see `frontend/.env.example`
+- Root (upload script): see `.env.example`
+
+3) Remove secrets from git history (required for public repos)
+If keys were committed, remove them from history so they don't remain retrievable:
+
+Option A – Fast (BFG Repo-Cleaner):
+```
+# Install BFG (https://rtyley.github.io/bfg-repo-cleaner/)
+git clone --mirror https://github.com/<owner>/<repo>.git
+java -jar bfg.jar --replace-text <(echo 'AIza==>***REMOVED***') <repo>.git
+java -jar bfg.jar --delete-files .env <repo>.git
+cd <repo>.git
+git reflog expire --expire=now --all
+git gc --prune=now --aggressive
+git push --force
+```
+
+Option B – Built-in (git filter-repo):
+```
+# Install: https://github.com/newren/git-filter-repo
+git filter-repo --path backend/.env --invert-paths
+git filter-repo --path frontend/src/firebase.js --replace-text <(printf 'AIza[^
+]*==>***REMOVED***')
+git push --force
+```
+
+4) Why we avoid client-side secrets
+- All AI calls are done via the backend (`/api/chat`). The frontend no longer embeds any API key.
+- Google Maps on the frontend reads `REACT_APP_GOOGLE_MAPS_API_KEY` only if provided; otherwise it falls back to a Leaflet/OpenStreetMap preview.
+- Firebase Web config uses public identifiers; treat them as configuration, not authentication.
+
+5) Local development notes (Windows PowerShell)
+```
+# Copy example env files
+Copy-Item backend/.env.example backend/.env
+Copy-Item frontend/.env.example frontend/.env
+Copy-Item .env.example .env
+
+# Start backend and frontend
+npm run dev
+```
+
 ## Troubleshooting
 
 **Connection Issues:**

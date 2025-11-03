@@ -1,12 +1,14 @@
 const cloudinary = require('cloudinary').v2;
 const path = require('path');
 const fs = require('fs');
+require('dotenv').config();
 
-// ⚠️ REPLACE THESE WITH YOUR CLOUDINARY CREDENTIALS
+// Configure Cloudinary from environment variables
+// Never hardcode credentials in the repository.
 cloudinary.config({
-  cloud_name: 'dn57ggyau',     // ← Replace with your cloud name
-  api_key: '877681875827269',           // ← Replace with your API key
-  api_secret: 'InOaFT0lcPyqPYEF2G70mvjRafA'      // ← Replace with your API secret
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // All media files to upload
@@ -97,6 +99,12 @@ async function uploadFile(filename, type) {
 }
 
 async function uploadAll() {
+  // Basic validation
+  if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+    console.error('❌ Cloudinary credentials are not set. Please add CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET to your .env');
+    process.exit(1);
+  }
+
   console.log('🚀 Starting upload to Cloudinary...\n');
   
   const results = {

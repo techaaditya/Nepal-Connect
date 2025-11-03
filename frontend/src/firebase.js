@@ -5,28 +5,30 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyD76_M3_zwFL0YjElwgLOXu7eyGt7uhHdw",
-//   authDomain: "hackathon-5981c.firebaseapp.com",
-//   projectId: "hackathon-5981c",
-//   storageBucket: "hackathon-5981c.firebasestorage.app",
-//   messagingSenderId: "474275463259",
-//   appId: "1:474275463259:web:fa16300191a6d843e07f7e",
-//   measurementId: "G-Y5PD2EB67L"
-// };
-
+// Firebase configuration is read from environment variables.
+// IMPORTANT: In React apps, variables must be prefixed with REACT_APP_ to be exposed at build time.
+// Do NOT hardcode credentials here.
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCJqlC2ybH5cy5Kzi8zeJhyrQVShkuK3jc",
-  authDomain: "nepal-connect.firebaseapp.com",
-  projectId: "nepal-connect",
-  storageBucket: "nepal-connect.firebasestorage.app",
-  messagingSenderId: "212126586027",
-  appId: "1:212126586027:web:2cd9ff88e0dc5f440753ee",
-  measurementId: "G-YFSM5L0MYP"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
+
+// Basic runtime validation in development to help avoid misconfigurations
+if (process.env.NODE_ENV !== 'production') {
+  const missing = Object.entries(firebaseConfig)
+    .filter(([, v]) => !v)
+    .map(([k]) => k);
+  if (missing.length) {
+    // eslint-disable-next-line no-console
+    console.warn('[Firebase] Missing env vars:', missing.join(', '));
+  }
+}
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

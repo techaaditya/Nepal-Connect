@@ -431,29 +431,10 @@ CRITICAL: Each question MUST be on its own line with a line break after each num
         const data = await res.json();
         text = data.text || '';
       } catch (backendError) {
-        console.log('Backend unavailable, using direct Gemini API:', backendError.message);
-        
-        // Fall back to direct Gemini API call
-        const { GoogleGenerativeAI } = await import('@google/generative-ai');
-        const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyDgu0vrn0JvwFqHmZj2lGEDGt1HhMcnumI';
-        const genAI = new GoogleGenerativeAI(apiKey);
-        const model = genAI.getGenerativeModel({ model: 'gemini-1.5-pro' });
-
-        const chatHistory = currentMessages.slice(0, -1).map(msg => ({
-          role: msg.role === 'assistant' ? 'model' : 'user',
-          parts: [{ text: msg.content }]
-        }));
-
-        const chat = model.startChat({
-          history: chatHistory,
-          generationConfig: {
-            maxOutputTokens: 4000,
-          },
-        });
-
-        const lastUserMessage = currentMessages[currentMessages.length - 1].content;
-        const result = await chat.sendMessage(fullPrompt + '\n\nUser: ' + lastUserMessage);
-        text = result.response.text();
+        // For security, do NOT fall back to client-side Gemini calls here.
+        // Keeping all AI calls on the server prevents API key exposure in the browser.
+        console.log('Backend unavailable for /api/chat:', backendError.message);
+        text = "I'm having trouble connecting to the assistant right now. Please try again in a moment.";
       }
       
       // Check if AI is creating a trip plan by detecting planning keywords in its response

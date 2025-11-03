@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import MapPreview from './MapPreview';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyCgue6RzYRRMr75peOB9aiMKO08-FU3Dzs';
+// Read key from env; do not hardcode. Note: Frontend keys must be restricted by HTTP referrers in Google Cloud.
+const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 function GoogleMapPreview({ lat, lon, name, height = 220, zoom = 15 }) {
   const mapRef = useRef(null);
@@ -8,6 +10,9 @@ function GoogleMapPreview({ lat, lon, name, height = 220, zoom = 15 }) {
 
   useEffect(() => {
     if (!lat || !lon || !mapRef.current) return;
+
+    // If no API key is configured, gracefully fall back to the Leaflet/OpenStreetMap map
+    if (!GOOGLE_MAPS_API_KEY) return;
 
     // Load Google Maps script if not already loaded
     if (!window.google) {
@@ -42,6 +47,11 @@ function GoogleMapPreview({ lat, lon, name, height = 220, zoom = 15 }) {
   }, [lat, lon, name, zoom]);
 
   if (!lat || !lon) return null;
+
+  // Fallback: if no Google Maps key, render the Leaflet map
+  if (!GOOGLE_MAPS_API_KEY) {
+    return <MapPreview lat={lat} lon={lon} name={name} height={height} zoom={zoom} />;
+  }
 
   return (
     <div 
