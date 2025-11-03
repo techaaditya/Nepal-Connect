@@ -16,7 +16,7 @@ import { AuthProvider } from './AuthContext';
 function App() {
   return (
     <AuthProvider>
-      <Router basename="/Nepal-Connect">
+      <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<HomePage />} />
