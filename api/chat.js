@@ -8,17 +8,23 @@ const app = express();
 // Configure CORS for Vercel deployment
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://nepal-connect-5g7d6xtl1-aaditya-sapkotas-projects.vercel.app']
+    ? ['https://nepal-connect.vercel.app', 'https://nepal-connect-5g7d6xtl1-aaditya-sapkotas-projects.vercel.app']
     : '*',
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
+  allowedHeaders: ['Content-Type', 'x-gemini-api-key']
 }));
 
 app.use(express.json());
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+// Handle OPTIONS preflight request
+app.options('/api/chat', (req, res) => {
+  res.status(200).end();
+});
 
 app.post('/api/chat', async (req, res) => {
   try {

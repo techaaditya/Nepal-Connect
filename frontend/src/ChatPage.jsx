@@ -414,11 +414,8 @@ CRITICAL: Each question MUST be on its own line with a line break after each num
         const headers = { 'Content-Type': 'application/json' };
         if (devKey) headers['x-gemini-api-key'] = devKey;
 
-        const baseUrl = process.env.NODE_ENV === 'production' 
-          ? 'https://nepal-connect-5g7d6xtl1-aaditya-sapkotas-projects.vercel.app'
-          : '';
-        
-        const res = await fetch(`${baseUrl}/api/chat`, {
+        // Use relative URL to hit the same domain (Vercel handles routing)
+        const res = await fetch('/api/chat', {
           method: 'POST',
           headers,
           credentials: 'include',
