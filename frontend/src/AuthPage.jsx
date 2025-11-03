@@ -13,6 +13,7 @@ const AuthPage = ({ onClose, onSuccess }) => {
     // Check for redirect result when component mounts
     const checkRedirectResult = async () => {
       try {
+        if (!auth) return; // Firebase not configured; skip
         const result = await getRedirectResult(auth);
         if (result) {
           const user = result.user;
@@ -36,6 +37,10 @@ const AuthPage = ({ onClose, onSuccess }) => {
     setError(null);
     
     try {
+      if (!auth || !googleProvider) {
+        setError('Sign-in is not available because Firebase is not configured.');
+        return;
+      }
       // First try popup method
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
